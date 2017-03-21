@@ -3,10 +3,10 @@ library(reshape2)
 
 # WD <- "E:/Dropbox/Mahal_lab/Bioinformatics_Project/CVL_project/FAME02/Microbiome_Data/"
 # setwd(WD)
-# 
-# lec.fname <- "LectinData_meltedformat.txt"
-# lec.data <- read.table(lec.fname, sep = "\t", header = T)
-# 
+
+lec.fname <- "LectinData_meltedformat.txt"
+lec.data <- read.table(lec.fname, sep = "\t", header = T)
+
 # fname <- "Microbiome_Data_mbvDF2.txt"
 # wide.data <- read.table(fname, sep = "\t", header = T)
 
