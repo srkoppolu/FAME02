@@ -34,9 +34,8 @@ colnames(mb.v4)[1] <- "Sample.ID"
 
 
 
-uniq.samples <- intersect(unique(lec.data$Pt.ID.2), 
-                            intersect(mb.v2$Sample.ID, 
-                                      intersect(mb.v3$Sample.ID, mb.v4$Sample.ID)))
+uniq.samples <- intersect(mb.v2$Sample.ID, 
+                                      intersect(mb.v3$Sample.ID, mb.v4$Sample.ID))
 
 
 
@@ -53,12 +52,12 @@ mbv3.melt$Visit <- "Visit 2"
 mbv4.melt$Visit <- "Visit 3"
 
 mb.DF <- rbind(mbv2.melt, mbv3.melt, mbv4.melt)
-mb.DF2 <- unique(merge(mb.DF, lec.data[,5:6], 
-                by.x = "Sample.ID", by.y = "Pt.ID.2",
+mb.DF2 <- unique(merge(mb.DF, lec.data[,c("Sample","Sample.2")], 
+                by.x = "Sample.ID", by.y = "Sample.2",
                 all.x = F, all.y = F))
 
 mb.DF3 <- unique(merge(wide.data[,1:4], mb.DF2, 
-                by.x = "Pt.ID", by.y = "Pt.ID",
+                by.x = "Pt.ID", by.y = "Sample.2",
                 all.x = F, all.y = F))
 
 
